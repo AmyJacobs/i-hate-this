@@ -1,23 +1,31 @@
 $(document).ready(function() {
-  $("#blanks form").submit(function(event) {
-  console.log(event);
-  var oneInput = $("input#one").val();
-  var twoInput = $("input#two").val();
-  var threeInput= $("input#three").val();
-  var fourInput = $("input#four").val();
-  var fiveInput = $("input#five").val();
-  var sixInput = $("input#six").val();
+  $("#blanks").submit(function(event) {
+  event.preventDefault();
+  var oneInput = $("#one").val();
 
-  var groceryList = oneInput.split(",");
 
-  var capGroceries = groceryList.map(function(grocery) {
-    return grocery.toUpperCase();
-  });
-  capGroceries.sort();
+  var groceryList = oneInput.split("");
 
-  capGroceries.forEach(function(groc){
-      $(".output").append("<li>"+groc+"</li>");
-  });
+  console.log(groceryList);
+
+  for (var index = 0; index < groceryList.length; index +=1) {
+        //debugger;
+        if (groceryList[index] = "q") {
+          $(".output").append("w");
+        }
+        if (groceryList[index] = "w") {
+          $(".output").append("e");
+        }
+         if (groceryList[index] = "e") {
+          $(".output").append("r");
+        }
+         if (groceryList[index] = "r") {
+          $(".output").append("t");}
+  }
+
+  // capGroceries.forEach(function(groc){
+  //     $(".output").append("<li>"+groc+"</li>");
+  // });
 
   // $(".one").text(capGroceries[0]);
   // $(".two").text(capGroceries[1]);
@@ -28,6 +36,5 @@ $(document).ready(function() {
 
     $("#story").show();
     $("#blanks form").hide();
-    event.preventDefault();
   });
 });
